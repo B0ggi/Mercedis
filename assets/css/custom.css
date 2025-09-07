@@ -1,0 +1,553 @@
+/* Add a semi-transparent overlay for better text visibility */
+#header, #main {
+    position: relative;
+    z-index: 1;
+}
+
+#header::before, #main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 31, 34, 0.7); /* Slightly lighter overlay */
+    z-index: -1;
+}
+
+#header h1, #header p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Apply Playfair Display to subtext */
+#header p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    text-transform: none;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Remove all decorative borders and lines */
+* {
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove decorative lines from headings */
+h1, h2, h3, h4, h5, h6 {
+    border-bottom: none !important;
+    border-top: none !important;
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+/* Remove decorative lines from major headings */
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+    border-bottom: none !important;
+    border-top: none !important;
+    margin: 0 0 2rem 0;
+    padding: 0;
+}
+
+/* Remove decorative lines between sections */
+article {
+    border-bottom: none !important;
+    border-top: none !important;
+    margin: 0 0 2rem 0;
+    padding: 0;
+}
+
+/* Remove decorative lines from navigation */
+nav ul li {
+    border-bottom: none !important;
+    border-top: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove decorative lines from lists */
+ul, ol {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove decorative lines from buttons */
+button, input[type="submit"], input[type="reset"] {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Remove decorative lines from tables */
+table {
+    border: none !important;
+    border-collapse: collapse !important;
+}
+
+/* Remove decorative lines from images */
+img {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove all vertical lines from header */
+#header > *:before {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical line from context menu */
+.close {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+.close:before {
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.close:after {
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove the overlay pattern from the background */
+#bg:before {
+    background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)) !important;
+    background-size: auto !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    -moz-filter: none !important;
+    -webkit-filter: none !important;
+    -ms-filter: none !important;
+    filter: none !important;
+}
+
+/* Remove vertical line from navigation menu */
+#header nav ul {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#header nav ul li {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+#header nav ul li.is-middle {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical line from middle navigation */
+#header nav.use-middle:after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#header nav.use-middle ul li.is-middle {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical lines from header and navigation */
+#header {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+#header .content,
+#header .inner {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical lines from navigation menu */
+nav {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+nav ul {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical lines from navigation menu items */
+nav ul li {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+nav ul li.is-middle {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove vertical lines from navigation menu links */
+nav ul li a {
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove all vertical lines from navigation menu pseudo-elements */
+nav ul li::before,
+nav ul li::after,
+nav ul li.is-middle::before,
+nav ul li.is-middle::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Portfolio Background Change */
+#bg {
+    transition: all 0.5s ease-in-out !important;
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+}
+
+/* Remove all background images and set dark background */
+body.is-article-visible, 
+body.is-article-visible #wrapper, 
+body.is-article-visible #bg,
+body.is-article-visible #bg:before,
+body.is-article-visible #bg:after {
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+    background-size: auto !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    -moz-filter: none !important;
+    -webkit-filter: none !important;
+    -ms-filter: none !important;
+    filter: none !important;
+}
+
+/* Handle all background states */
+body.is-article-visible #bg:before,
+body.is-article-visible #bg:after,
+body.is-article-visible #wrapper #bg:before,
+body.is-article-visible #wrapper #bg:after {
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+    content: '' !important;
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove any background from wrapper when article is visible */
+#wrapper.is-article-visible,
+#wrapper.is-article-visible #bg,
+#wrapper.is-article-visible #bg:before,
+#wrapper.is-article-visible #bg:after {
+    background: none !important;
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+}
+
+/* Remove background from body when article is visible */
+body.is-article-visible,
+body.is-article-visible #bg,
+body.is-article-visible #bg:before,
+body.is-article-visible #bg:after {
+    background: none !important;
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+}
+
+/* Handle all possible background states */
+.is-article-visible #bg,
+.is-article-visible #bg:before,
+.is-article-visible #bg:after,
+body.is-article-visible #wrapper #bg,
+body.is-article-visible #wrapper #bg:before,
+body.is-article-visible #wrapper #bg:after {
+    background: none !important;
+    background-image: none !important;
+    background-color: #1b1f22 !important;
+    content: '' !important;
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Consistent Page Headers */
+.contact-section h1,
+.about-section h1,
+.portfolio-header h1,
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.contact-section h1::after,
+.about-section h1::after,
+.portfolio-header h1::after,
+.page-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background-color: #94a3b8;
+}
+
+.contact-section > p,
+.about-section > p,
+.portfolio-header > p,
+.page-header > p {
+    color: #555;
+    font-size: 1.1rem;
+    margin: 1rem auto 3rem;
+    max-width: 700px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Monogram Styling */
+.logo .monogram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.logo .monogram:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(15deg);
+}
+
+/* Signature Styling */
+.signature {
+    margin: 2rem 0 0;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.signature-img {
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Reset and base styles */
+html, body, #wrapper, #main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+/* Ensure the main content area takes full width */
+#main {
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Portfolio Grid - Full Width */
+.portfolio-grid {
+    display: none;
+}
+
+.portfolio-item {
+    display: none;
+}
+
+.artwork-overlay {
+    display: none;
+}
+
+.filter-buttons {
+    display: none;
+}
+
+.category-title {
+    display: none;
+}
+
+/* Featured Works on Homepage */
+.featured-works {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.featured-work {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.featured-work:hover {
+    transform: translateY(-5px);
+}
+
+.featured-work img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-work:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.featured-work h3 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.featured-work p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.actions .button.primary {
+    background-color: #4a6fa5;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.actions .button.primary:hover {
+    background-color: #3a5a80;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for featured works */
+@media screen and (max-width: 768px) {
+    .featured-works {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .featured-work {
+        margin-bottom: 2rem;
+    }
+    
+    .featured-work:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Boat Icon Styling */
+.boat-icon {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.boat-icon svg {
+    width: 60%;
+    height: 60%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+.boat-icon:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.boat-icon:hover svg {
+    color: #f8f8f8;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Adjust header spacing for the new elements */
+#header .content {
+    padding-bottom: 2rem;
+}
+
+#header h1 {
+    margin-bottom: 0.5rem;
+}
+
+#header p {
+    margin-bottom: 0;
+}

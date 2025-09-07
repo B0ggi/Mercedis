@@ -891,8 +891,6 @@ input, select, textarea {
 							margin-left: -0.5em;
 						}
 
-		}
-
 /* Icons */
 
 	ul.icons {
@@ -1104,6 +1102,29 @@ input, select, textarea {
 		line-height: calc(2.75rem - 2px);
 	}
 
+/* Navigation Menu */
+
+#nav a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 50px;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin: 0.5rem 0;
+}
+
+#nav a:hover,
+#nav a:focus,
+#nav a.active {
+    background: #cbd5e1;
+    border-color: #94a3b8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 /* BG */
 
 	#bg {
@@ -1140,9 +1161,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 

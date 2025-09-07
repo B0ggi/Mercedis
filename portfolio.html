@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ellinor Mercedis - Listaverk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/navigation.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        /* Portfolio specific styles */
+        body {
+            padding-top: 80px;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #f5f5f5;
+            color: #111;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.15rem;
+            margin-top: 0;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+
+        .filter-btn {
+            background: #e2e8f0 !important;
+            border: 1px solid #cbd5e1 !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 50px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            color: #000 !important;
+            font-weight: 500 !important;
+        }
+
+        .filter-btn:hover, 
+        .filter-btn.active {
+            background: #cbd5e1 !important;
+            color: #000 !important;
+            border-color: #94a3b8 !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            grid-column: 1 / -1;
+            font-size: 1.5em;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.3rem;
+            text-transform: uppercase;
+            color: #333;
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            /* Performance: promote to its own layer and limit animated properties */
+            will-change: transform;
+            transform: translateZ(0);
+            transition: transform 0.25s ease-out;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            /* Keep shadow static to avoid expensive repaints on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artwork-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            /* Performance hint for smoother slide-in */
+            will-change: transform, opacity;
+        }
+
+        .portfolio-item:hover .artwork-overlay {
+            transform: translateY(0);
+        }
+
+        .artwork-info h3 {
+            margin: 0 0 5px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        .artwork-meta {
+            font-size: 0.9em;
+            opacity: 0.9;
+            color: #eee;
+        }
+
+        .artwork-meta span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        .availability {
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        .available { color: #2ecc71; }
+        .not-available { color: #e74c3c; }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem 2rem;
+            }
+            
+            .category-title {
+                padding-left: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be inserted here by navigation.js -->
+    <div id="navigation-placeholder"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Listaverk</h1>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Øll listaverk</button>
+            <button class="filter-btn" data-filter="available">Tøk listaverk</button>
+            <button class="filter-btn" data-filter="y2025">2025</button>
+            <button class="filter-btn" data-filter="y2024">2024</button>
+            <button class="filter-btn" data-filter="y2023">2023</button>
+        </div>
+    </div>
+    <main class="portfolio-grid" id="portfolio-grid">
+      <!-- Artworks will be inserted here by JavaScript -->
+    </main>
+
+    <script>
+        // Artworks are loaded from assets/js/artwork.js
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script type="module" src="assets/js/artwork.js"></script>
+    <script type="module" src="assets/js/portfolio.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    
+    <!-- Footer Script -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+    <footer>
+        &copy; 2025 Ellinor Mercedis. All rights reserved.
+    </footer>
+</body>
+</html>
