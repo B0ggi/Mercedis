@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fo">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +20,13 @@
             color: #111;
             line-height: 1.6;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
         }
 
         .container {
@@ -55,6 +62,29 @@
             gap: 1rem;
             margin-bottom: 2rem;
             padding: 0 2rem;
+        }
+
+        /* Hide filter buttons on mobile */
+        @media (max-width: 768px) {
+            .filter-buttons {
+                display: none;
+            }
+            
+            .portfolio-grid {
+                padding: 0 1rem 4rem;
+            }
+            
+            .category-title {
+                padding-left: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
         }
 
         .filter-btn {
@@ -183,23 +213,26 @@
 </head>
 <body>
     <!-- Navigation will be inserted here by navigation.js -->
-    <div id="navigation-placeholder"></div>
+    <nav id="navigation-placeholder"></nav>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Listaverk</h1>
-        </div>
+    <main>
+        <header class="container">
+            <div class="page-header">
+                <h1>Listaverk</h1>
+            </div>
 
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Øll listaverk</button>
-            <button class="filter-btn" data-filter="available">Tøk listaverk</button>
-            <button class="filter-btn" data-filter="y2025">2025</button>
-            <button class="filter-btn" data-filter="y2024">2024</button>
-            <button class="filter-btn" data-filter="y2023">2023</button>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Øll listaverk</button>
+                <button class="filter-btn" data-filter="available">Tøk listaverk</button>
+                <button class="filter-btn" data-filter="y2025">2025</button>
+                <button class="filter-btn" data-filter="y2024">2024</button>
+                <button class="filter-btn" data-filter="y2023">2023</button>
+            </div>
+        </header>
+        
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Artworks will be inserted here by JavaScript -->
         </div>
-    </div>
-    <main class="portfolio-grid" id="portfolio-grid">
-      <!-- Artworks will be inserted here by JavaScript -->
     </main>
 
     <script>
@@ -212,9 +245,6 @@
     <script type="module" src="assets/js/artwork.js"></script>
     <script type="module" src="assets/js/portfolio.js"></script>
     <script src="assets/js/navigation.js"></script>
-    
-    <!-- Footer Script -->
-    <script src="assets/js/footer.js"></script>
 
     <script>
         // Mobile menu toggle
@@ -234,9 +264,9 @@
             });
         });
     </script>
+    
+    <!-- Footer Script - Load last -->
+    <script src="assets/js/footer.js"></script>
 
-    <footer>
-        &copy; 2025 Ellinor Mercedis. All rights reserved.
-    </footer>
 </body>
 </html>

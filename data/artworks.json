@@ -1,0 +1,185 @@
+{
+  "artworks": [
+    {
+      "id": "portfolio10",
+      "title": "Listaverk 10",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "80 x 60 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio10.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio11",
+      "title": "Listaverk 11",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "70 x 50 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio11.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio12",
+      "title": "Listaverk 12",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio12.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio13",
+      "title": "Listaverk 13",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "60 x 80 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio13.JPEG",
+      "categories": ["notavailable", "y2024"]
+    },
+    {
+      "id": "portfolio14",
+      "title": "Listaverk 14",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "75 x 55 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio14.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio15",
+      "title": "Listaverk 15",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "85 x 65 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio15.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio16",
+      "title": "Listaverk 16",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "70 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio16.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio17",
+      "title": "Listaverk 17",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "80 x 60 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio17.JPEG",
+      "categories": ["notavailable", "y2024"]
+    },
+    {
+      "id": "portfolio18",
+      "title": "Listaverk 18",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio18.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio2",
+      "title": "Bátur í roki",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio2.jpg",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio3",
+      "title": "Listaverk 3",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "65 x 85 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio3.JPEG",
+      "categories": ["available", "y2024"]
+    },
+    {
+      "id": "portfolio4",
+      "title": "Dýpstafur",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "70 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio4.JPEG",
+      "categories": ["available", "y2022"]
+    },
+    {
+      "id": "portfolio5",
+      "title": "Listaverk 5",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "75 x 95 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio5.JPEG",
+      "categories": ["notavailable", "y2022"]
+    },
+    {
+      "id": "portfolio6",
+      "title": "Listaverk 6",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "80 x 60 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio6.JPEG",
+      "categories": ["available", "y2022"]
+    },
+    {
+      "id": "portfolio7",
+      "title": "Listaverk 7",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "85 x 65 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio7.JPEG",
+      "categories": ["available", "y2022"]
+    },
+    {
+      "id": "portfolio8",
+      "title": "Listaverk 8",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio8.JPEG",
+      "categories": ["notavailable", "y2022"]
+    },
+    {
+      "id": "portfolio9",
+      "title": "Listaverk 9",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "70 x 90 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio9.JPEG",
+      "categories": ["available", "y2022"]
+    },
+
+    {
+      "id": "portfolio1",
+      "title": "Fyrsta verk",
+      "year": "2022",
+      "technique": "Akryl á lørift",
+      "size": "60 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/portfolio_1.jpg",
+      "categories": ["available", "y2022"]
+    }
+  ]
+}

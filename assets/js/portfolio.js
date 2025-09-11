@@ -1,9 +1,12 @@
 // Import artworks from artwork.js
-import { artworks } from './artwork.js';
+import { artworks, loadArtworks } from './artwork.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const portfolioGrid = document.getElementById('portfolio-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // Load artworks data first
+    await loadArtworks();
 
     // Function to get category label
     function getCategoryLabel(category) {
@@ -11,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'available': return 'Tøk listaverk';
             case 'y2025': return '2025';
             case 'y2024': return '2024';
-            case 'y2023': return '2023';
+            case 'y2022': return '2022';
             default: return category;
         }
     }
@@ -20,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderArtworks(filter = 'all') {
         // Clear the grid
         portfolioGrid.innerHTML = '';
+
+        // Check if artworks loaded successfully
+        if (!artworks || artworks.length === 0) {
+            portfolioGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #666;">Ongar listaverk tøk í løtuni.</p>';
+            return;
+        }
 
         // Filter artworks based on the selected filter
         const filteredArtworks = filter === 'all' 
@@ -87,14 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
             item.className = `portfolio-item ${art.categories.join(' ')}`;
             item.innerHTML = `
                 <a href="${art.image}" data-gallery="portfolio-gallery">
-                    <img src="${art.image}" alt="${art.title}" loading="lazy" decoding="async">
+                    <img src="${art.image}" alt="${art.title}" loading="lazy" decoding="async" onerror="this.src='images/placeholder.jpg'; this.alt='Mynd ikki tøk';">
                     <div class="artwork-overlay">
                         <div class="artwork-info">
                             <h3>${art.title}</h3>
                             <div class="artwork-meta">
                                 <span>${art.year}</span>
-                                <span>${art.technique}</span>
-                                <span>${art.size}</span>
+                                ${art.technique ? `<span>${art.technique}</span>` : ''}
+                                ${art.size ? `<span>${art.size}</span>` : ''}
                                 <span class="availability ${art.available ? 'available' : 'not-available'}">
                                     ${art.available ? 'Tøkt' : 'Ikki Tøkt'}
                                 </span>

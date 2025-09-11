@@ -29,6 +29,7 @@
     color: #111; /* Darker text for better contrast */
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
     text-decoration: none;
     margin-right: 2rem;
     transition: color 0.3s ease;

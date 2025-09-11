@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fo">
 <head>
     <title>Ellinor Mercedis - Samband</title>
     <meta charset="utf-8" />
@@ -19,6 +19,13 @@
             background-color: #f5f5f5;
             color: #111;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
         }
 
         .contact-section {
@@ -183,6 +190,25 @@
             text-transform: uppercase;
         }
 
+        .contact-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #222;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .contact-section {
                 padding: 1rem;
@@ -200,24 +226,24 @@
 </head>
 <body>
     <!-- Navigation will be inserted here by navigation.js -->
-    <div id="navigation-placeholder"></div>
+    <nav id="navigation-placeholder"></nav>
 
-    <div class="container">
-        <div class="page-header">
+    <main>
+        <header class="page-header">
             <h1>Samband</h1>
-        </div>
+        </header>
 
-        <div class="contact-section">
+        <section class="contact-section">
             <div class="contact-info-box">
                 <div class="contact-info-item">
                     <i class="fas fa-envelope"></i>
                     <h3>Teldupostur</h3>
-                    <a href="mailto:info@ellinor-mercedis.fo">ellinormercedisfinnsdottirhansen@gmail.com</a>
+                    <a href="mailto:ellinormercedisfinnsdottirhansen@gmail.com">ellinormercedisfinnsdottirhansen@gmail.com</a>
                 </div>
                 <div class="contact-info-item">
                     <i class="fas fa-phone"></i>
                     <h3>Telefon</h3>
-                    <a href="tel:+298000000">+298 277067</a>
+                    <a href="tel:+298277067">+298 277067</a>
                 </div>
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -242,28 +268,17 @@
                 </div>
                 <button type="submit" class="btn">Send boð</button>
             </form>
-        </div>
-    </div>
-
-    <!-- Footer will be inserted here by footer.js -->
-    <div id="footer-placeholder"></div>
+        </section>
+    </main>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/footer.js"></script>
     
     <script>
-        // Initialize navigation and footer
+        // Form submission handling
         $(document).ready(function() {
-            // Load navigation
-            $("#navigation-placeholder").load("navigation.html");
-            
-            // Load footer
-            $("#footer-placeholder").load("footer.html");
-            
-            // Form submission handling
             $("#contactForm").on("submit", function(e) {
                 e.preventDefault();
                 alert('Takk fyri tína boð! Eg svarar tær eins skjótt sum møguligt.');
@@ -271,5 +286,8 @@
             });
         });
     </script>
+    
+    <!-- Footer Script - Load last -->
+    <script src="assets/js/footer.js"></script>
 </body>
 </html>

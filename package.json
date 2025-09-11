@@ -5,6 +5,8 @@
   "description": "Utilities for optimizing static assets",
   "type": "module",
   "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
     "optimize:images": "node scripts/optimize-images.mjs"
   },
   "devDependencies": {

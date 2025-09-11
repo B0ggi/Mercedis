@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="fo">
 <head>
     <title>Ellinor Mercedis - Framsýningar</title>
     <meta charset="utf-8" />
@@ -8,129 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="stylesheet" href="assets/css/framsyningar.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="assets/js/navigation.js"></script>
-    <style>
-        body {
-            padding-top: 35px !important;
-            font-family: 'Source Sans Pro', sans-serif;
-            margin: 0;
-            background-color: #f5f5f5;
-            color: #111;
-            line-height: 1.6;   
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 3rem 1.5rem;
-        }
-        .page-header {
-            text-align: center;
-            margin: 0 0 4rem 0;
-            padding: 0;
-        }
-        .page-header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            color: #222;
-            letter-spacing: 1px;
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-        }
-        .page-header p {
-            color: #666;
-            font-size: 1.15rem;
-            margin-top: 0;
-        }
-        .exhibition-section {
-            margin-bottom: 4rem;
-        }
-        .exhibition-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #222;
-
-        }
-        .exhibitions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .exhibition-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .exhibition-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        .exhibition-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .exhibition-info {
-            padding: 1.5rem;
-        }
-        .exhibition-info h3 {
-            margin: 0 0 1rem 0;
-            color: #222;
-            font-family: 'Playfair Display', serif;
-        }
-        .exhibition-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            color: #555;
-            font-size: 0.9em;
-        }
-        .exhibition-meta i {
-            margin-right: 0.5rem;
-            color: #2ecc71;
-        }
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1.5rem;
-            background: #e2e8f0;
-            border: 1px solid #cbd5e1;
-            border-radius: 50px;
-            color: #000;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-        .btn:hover,
-        .btn:focus,
-        .btn.active {
-            background: #cbd5e1;
-            color: #000;
-            border-color: #94a3b8;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-        #content {
-            margin-top: 50px;
-        }
-    </style>
 </head>
 <body>
-    <div id="navigation-placeholder"></div>
+    <nav id="navigation-placeholder"></nav>
     
-    <div id="content">
+    <main id="content">
         <div class="container">
-            <div class="page-header">
+            <header class="page-header">
                 <h1>Framsýningar</h1>
-            </div>
+            </header>
 
             <!-- Upcoming Exhibitions Section -->
             <section class="exhibition-section">
@@ -138,7 +27,7 @@
                 <div class="exhibitions-grid">
                     <!-- Upcoming Exhibition 1 -->
                     <article class="exhibition-card">
-                        <img src="images\Framsyningar\Gallari_a_stongunum.jpg" alt="Framtíðarsýning" class="exhibition-image">
+                        <img src="images/Framsyningar/Gallari_a_stongunum.jpg" alt="Framsýning í Gallaríinum á stongunum" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Framsýning í Gallaríinum á stongunum</h3>
                             <div class="exhibition-meta">
@@ -156,22 +45,9 @@
             <section class="exhibition-section">
                 <h2>Framsýningar</h2>
                 <div class="exhibitions-grid">
-                    <!-- Current Exhibition 1 -->
-                    <article class="exhibition-card">
-                        <img src="images\Framsyningar\Framsyning_Varpid.jpg" alt="Nýggj List" class="exhibition-image">
-                        <div class="exhibition-info">
-                            <h3>Varpið - Klaksvík</h3>
-                            <div class="exhibition-meta">
-                                <div><i class="far fa-calendar-alt"></i> 7. Juli - 12. Juli 2024</div>
-                                <div><i class="fas fa-map-marker-alt"></i> Varpið, Klaksvík</div>
-                            </div>
-                            <p>Listaframsýning í Varpinum í Klaksvík.</p>
-                            <a href="#" class="btn">Les meira</a>
-                        </div>
-                    </article>
                      <!-- Current Exhibition 2 -->
                      <article class="exhibition-card">
-                        <img src="images\Framsyningar\framsyning_astongunum_2024.jpg" alt="Nýggj List" class="exhibition-image">
+                        <img src="images/Framsyningar/framsyning_astongunum_2024.jpg" alt="Gallaríið á Stongunum framsýning 2024" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Gallaríið á Stongunum</h3>
                             <div class="exhibition-meta">
@@ -185,7 +61,7 @@
 
                     <!-- Current Exhibition 3 -->
                     <article class="exhibition-card">
-                        <img src="images\Framsyningar\framsyning_des_24.jpg" alt="Nýggj List" class="exhibition-image">
+                        <img src="images/Framsyningar/framsyning_des_24.jpg" alt="Framsýning desember 2024" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Gallaríið á Stongunum</h3>
                             <div class="exhibition-meta">
@@ -198,40 +74,53 @@
                     </article>
                     <!-- Current Exhibition 4 -->
                     <article class="exhibition-card">
-                        <img src="images\Framsyningar\framsyning_astongunum_2024.jpg" alt="Nýggj List" class="exhibition-image">
+                        <img src="images/Framsyningar/Olavsoka 2024.JPEG" alt="Ólavsøka 2024 framsýning" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Ólavsøka 2024</h3>
                             <div class="exhibition-meta">
-                                <div><i class="far fa-calendar-alt"></i> 31. Mai - 6. Juni 2024</div>
-                                <div><i class="fas fa-map-marker-alt"></i> Gallaríið á Stongunum, Klaksvík</div>
+                                <div><i class="far fa-calendar-alt"></i> Juli 2024</div>
+                                <div><i class="fas fa-map-marker-alt"></i> Müllers Pakkhús, Tórshavn</div>
                             </div>
-                            <p>Listaframsýning á Gallaríið á Stongunum í Klaksvík.</p>
+                            <p>Listaframsýning á Ólavsøku í Müllers Pakkhús, Tórshavn.</p>
                             <a href="https://nordlysid.fo/tidindi/83049/malningaframsyning-hja-victor" class="btn">Les meira</a>
+                        </div>
+                    </article>
+                    <!-- Current Exhibition 1 -->
+                    <article class="exhibition-card">
+                        <img src="images/Framsyningar/Framsyning_Varpid.jpg" alt="Framsýning í Varpinum" class="exhibition-image">
+                        <div class="exhibition-info">
+                            <h3>Varpið - Klaksvík</h3>
+                            <div class="exhibition-meta">
+                                <div><i class="far fa-calendar-alt"></i> 7. Juli - 12. Juli 2024</div>
+                                <div><i class="fas fa-map-marker-alt"></i> Varpið, Klaksvík</div>
+                            </div>
+                            <p>Listaframsýning í Varpinum í Klaksvík.</p>
+                            <a href="#" class="btn">Les meira</a>
                         </div>
                     </article>
                     <!-- Current Exhibition 5 -->
                     <article class="exhibition-card">
-                        <img src="images\Framsyningar\framsyning_astongunum_2024.jpg" alt="Nýggj List" class="exhibition-image">
+                        <img src="images/Framsyningar/Olavsoka 2023.JPEG" alt="Ólavsøka 2023 framsýning" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Ólavsøka 2023</h3>
                             <div class="exhibition-meta">
-                                <div><i class="far fa-calendar-alt"></i> 31. Mai - 6. Juni 2024</div>
-                                <div><i class="fas fa-map-marker-alt"></i> Gallaríið á Stongunum, Klaksvík</div>
+                                <div><i class="far fa-calendar-alt"></i> Juli 2023</div>
+                                <div><i class="fas fa-map-marker-alt"></i> Müllers Pakkhús, Tórshavn</div>
                             </div>
-                            <p>Listaframsýning á Gallaríið á Stongunum í Klaksvík.</p>
+                            <p>Listaframsýning á Ólavsøku í Müllers Pakkhús, Tórshavn.</p>
                             <a href="https://nordlysid.fo/tidindi/83049/malningaframsyning-hja-victor" class="btn">Les meira</a>
                         </div>
                     </article>
                     <!-- Current Exhibition 6 -->
                     <article class="exhibition-card">
-                        <img src="images\Framsyningar\framsyning_astongunum_2024.jpg" alt="Nýggj List" class="exhibition-image">
+                        <img src="images/Framsyningar/Olavsoka 2022.JPEG" alt="Ólavsøka 2022 framsýning" class="exhibition-image">
                         <div class="exhibition-info">
                             <h3>Ólavsøka 2022</h3>
                             <div class="exhibition-meta">
-                                <div><i class="far fa-calendar-alt"></i> 31. Mai - 6. Juni 2024</div>
-                                <div><i class="fas fa-map-marker-alt"></i> Gallaríið á Stongunum, Klaksvík</div>
+                                <div><i class="far fa-calendar-alt"></i> Juli 2022</div>
+                                <div><i class="fas fa-map-marker-alt"></i> Müllers Pakkhús, Tórshavn</div>
                             </div>
-                            <p>Listaframsýning á Gallaríið á Stongunum í Klaksvík.</p>
+                            <p>Listaframsýning á Ólavsøku í Müllers Pakkhús, Tórshavn.</p>
                             <a href="https://nordlysid.fo/tidindi/83049/malningaframsyning-hja-victor" class="btn">Les meira</a>
                         </div>
                     </article>
@@ -240,7 +129,7 @@
                     
             </section>
         </div>
-    </div>
+    </main>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="is">
+<html lang="fo">
 <head>
     <title>Ellinor Mercedis - Um meg</title>
     <meta charset="utf-8" />
@@ -63,8 +63,10 @@
 
         .about-img img {
             width: 100%;
+            height: auto;
             display: block;
             border-radius: 12px;
+            object-fit: contain;
         }
 
         .about-text {
@@ -91,27 +93,46 @@
                 flex-direction: column;
             }
 
+            .about-img {
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .about-img img {
+                max-height: 400px;
+                object-fit: cover;
+                object-position: center;
+            }
+
             .about-text {
                 text-align: center;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation is inserted by assets/js/navigation.js -->
+    <nav id="navigation-placeholder"></nav>
 
-    <div class="container">
-        <div class="page-header">
+    <main class="container">
+        <header class="page-header">
             <h1>Um meg</h1>
-
-        </div>
+        </header>
 
         <section class="about-flex">
             <div class="about-img">
-                <img src="images/Um_meg/um_meg_mynd.jpg" alt="Ellinor Mercedis">
+                <img src="images/Um_meg/um_meg_mynd.jpg" alt="Ellinor Mercedis - Listakvinna">
             </div>
-            <div class="about-text">
-                <h2> Ellinor Mercedis</h2>
+            <article class="about-text">
+                <h2>Ellinor Mercedis</h2>
                 <p>
                     Eg eiti Ellinor Mercedis, og eg eri uppvaksin í Klaksvík. Eg havi altíð kent ein tørv á at skapa, og sum barn havi eg teknað nógv. Tekning var ein stórur partur av mínum uppvøkstri.
                 </p>
@@ -130,9 +151,9 @@
                 <p>
                     Eg byggi málningarnar á eina sterka tekniska rót, men loyvi litunum og penslasløgnum at flyta meg út um tað reglubundna.
                 </p>
-            </div>
+            </article>
         </section>
-    </div>
+    </main>
 
     <!-- Footer is inserted by assets/js/footer.js -->
 
