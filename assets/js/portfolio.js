@@ -1,12 +1,12 @@
-// Import artworks from artwork.js
-import { artworks, loadArtworks } from './artwork.js';
+// Import the data loader
+import { loadArtworks } from './artwork.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
     const portfolioGrid = document.getElementById('portfolio-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
     // Load artworks data first
-    await loadArtworks();
+    const artworks = await loadArtworks();
 
     // Function to get category label
     function getCategoryLabel(category) {

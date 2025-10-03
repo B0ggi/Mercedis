@@ -11,18 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Mercedis.fo</a>
-            <div class="nav-menu">
+            <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Heim</a>
                 <a href="framsyningar.html" class="nav-link">Framsýningar</a>
                 <a href="portfolio.html" class="nav-link">Listaverk</a>
                 <a href="um_meg.html" class="nav-link">Um meg</a>
                 <a href="samband.html" class="nav-link">Samband</a>
             </div>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>`;
 
@@ -49,13 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function mobileMenu() {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
+        hamburger.setAttribute('aria-expanded', !isExpanded);
     }
 
     function closeMenu() {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
+        hamburger.setAttribute('aria-expanded', 'false');
     }
 
     // Highlight active page

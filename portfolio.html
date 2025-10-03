@@ -10,212 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/navigation.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        /* Portfolio specific styles */
-        body {
-            padding-top: 80px;
-            font-family: 'Source Sans Pro', sans-serif;
-            background-color: #f5f5f5;
-            color: #111;
-            line-height: 1.6;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 3rem 1.5rem;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .page-header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            color: #222;
-            letter-spacing: 1px;
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-        }
-
-        .page-header p {
-            color: #666;
-            font-size: 1.15rem;
-            margin-top: 0;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 0 2rem;
-        }
-
-        /* Hide filter buttons on mobile */
-        @media (max-width: 768px) {
-            .filter-buttons {
-                display: none;
-            }
-            
-            .portfolio-grid {
-                padding: 0 1rem 4rem;
-            }
-            
-            .category-title {
-                padding-left: 1rem;
-            }
-
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-        }
-
-        .filter-btn {
-            background: #e2e8f0 !important;
-            border: 1px solid #cbd5e1 !important;
-            padding: 0.5rem 1.5rem !important;
-            border-radius: 50px !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            color: #000 !important;
-            font-weight: 500 !important;
-        }
-
-        .filter-btn:hover, 
-        .filter-btn.active {
-            background: #cbd5e1 !important;
-            color: #000 !important;
-            border-color: #94a3b8 !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .category-title {
-            grid-column: 1 / -1;
-            font-size: 1.5em;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.3rem;
-            text-transform: uppercase;
-            color: #333;
-            text-align: left;
-            padding-left: 2rem;
-        }
-
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            /* Performance: promote to its own layer and limit animated properties */
-            will-change: transform;
-            transform: translateZ(0);
-            transition: transform 0.25s ease-out;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            /* Keep shadow static to avoid expensive repaints on hover */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .artwork-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            /* Performance hint for smoother slide-in */
-            will-change: transform, opacity;
-        }
-
-        .portfolio-item:hover .artwork-overlay {
-            transform: translateY(0);
-        }
-
-        .artwork-info h3 {
-            margin: 0 0 5px;
-            font-size: 1.1em;
-            color: #fff;
-        }
-
-        .artwork-meta {
-            font-size: 0.9em;
-            opacity: 0.9;
-            color: #eee;
-        }
-
-        .artwork-meta span {
-            display: block;
-            margin: 3px 0;
-        }
-
-        .availability {
-            margin-top: 5px;
-            font-weight: 600;
-        }
-        .available { color: #2ecc71; }
-        .not-available { color: #e74c3c; }
-
-        @media (max-width: 768px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem 2rem;
-            }
-            
-            .category-title {
-                padding-left: 1rem;
-            }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="page-layout">
     <!-- Navigation will be inserted here by navigation.js -->
     <nav id="navigation-placeholder"></nav>
 
-    <main>
+    <main class="main-content">
         <header class="container">
             <div class="page-header">
                 <h1>Listaverk</h1>
@@ -226,7 +29,6 @@
                 <button class="filter-btn" data-filter="available">Tøk listaverk</button>
                 <button class="filter-btn" data-filter="y2025">2025</button>
                 <button class="filter-btn" data-filter="y2024">2024</button>
-                <button class="filter-btn" data-filter="y2023">2023</button>
             </div>
         </header>
         
@@ -236,14 +38,97 @@
     </main>
 
     <script>
-        // Artworks are loaded from assets/js/artwork.js
+        document.addEventListener('DOMContentLoaded', async function() {
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            async function loadArtworks() {
+                try {
+                    const response = await fetch('data/artworks.json');
+                    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                    const data = await response.json();
+                    return data.artworks;
+                } catch (error) {
+                    console.error('Failed to load artworks:', error);
+                    return [];
+                }
+            }
+
+            const artworks = await loadArtworks();
+
+            function createArtworkElement(art) {
+                const item = document.createElement('div');
+                item.className = 'portfolio-item';
+
+                item.innerHTML = `
+                    <a href="${art.image}" data-gallery="portfolio-gallery" title="${art.title}">
+                        <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null;this.src='images/placeholder.jpg';">
+                        <div class="artwork-overlay">
+                            <div class="artwork-info">
+                                <h3>${art.title}</h3>
+                                <div class="artwork-meta">
+                                    <span>${art.year}</span>
+                                    ${art.technique ? `<span>${art.technique}</span>` : ''}
+                                    <span class="availability ${art.available ? 'available' : 'not-available'}">${art.available ? 'Tøkt' : 'Selt'}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>`;
+                return item;
+            }
+
+            function renderArtworks(filter = 'all') {
+                portfolioGrid.innerHTML = '';
+
+                if (!artworks || artworks.length === 0) {
+                    portfolioGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #666;">Ongi listaverk funnin.</p>';
+                    return;
+                }
+
+                let filteredArtworks;
+                if (filter === 'all') {
+                    filteredArtworks = artworks;
+                } else if (filter === 'available') {
+                    filteredArtworks = artworks.filter(art => art.available);
+                } else {
+                    filteredArtworks = artworks.filter(art => art.categories.includes(filter));
+                }
+
+                if (filteredArtworks.length === 0) {
+                    portfolioGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #666;">Ongi listaverk funnin fyri hetta filtrið.</p>';
+                    return;
+                }
+
+                filteredArtworks.forEach(art => {
+                    const item = createArtworkElement(art);
+                    portfolioGrid.appendChild(item);
+                });
+
+                // Re-initialize Magnific Popup
+                $('.portfolio-grid').magnificPopup({
+                    delegate: 'a[data-gallery="portfolio-gallery"]',
+                    type: 'image',
+                    gallery: { enabled: true }
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    renderArtworks(filter);
+                });
+            });
+
+            // Initial render
+            renderArtworks('all');
+        });
     </script>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script type="module" src="assets/js/artwork.js"></script>
-    <script type="module" src="assets/js/portfolio.js"></script>
     <script src="assets/js/navigation.js"></script>
 
     <script>

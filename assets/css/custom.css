@@ -393,39 +393,31 @@ html, body, #wrapper, #main {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
     overflow-x: hidden;
 }
 
-/* Ensure the main content area takes full width */
-#main {
-    position: relative;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+/* Global Page Layout */
+body.page-layout {
+    padding-top: 80px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #f5f5f5;
+    color: #111;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Portfolio Grid - Full Width */
-.portfolio-grid {
-    display: none;
+.page-layout main {
+    flex: 1;
+    padding-bottom: 4rem; /* Consistent padding above footer */
 }
 
-.portfolio-item {
-    display: none;
-}
 
-.artwork-overlay {
-    display: none;
-}
 
-.filter-buttons {
-    display: none;
-}
 
-.category-title {
-    display: none;
-}
+
+
 
 /* Featured Works on Homepage */
 .featured-works {

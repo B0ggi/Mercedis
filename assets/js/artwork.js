@@ -1,24 +1,16 @@
-// Artwork data loader with error handling
-let artworks = [];
+// Simplified artwork data loader
 
-async function loadArtworks() {
+export async function loadArtworks() {
   try {
     const response = await fetch('data/artworks.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    artworks = data.artworks;
-    return artworks;
+    return data.artworks;
   } catch (error) {
     console.error('Error loading artworks:', error);
-    // Fallback to empty array if JSON fails to load
-    artworks = [];
-    return artworks;
+    // Return an empty array on failure to prevent breaking the calling script
+    return [];
   }
 }
-
-// Initialize artworks on module load
-loadArtworks();
-
-export { artworks, loadArtworks };
