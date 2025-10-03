@@ -9,8 +9,11 @@
   <!-- Performance optimizations -->
   <link rel="preload" href="images/background/Background.png" as="image">
   <link rel="preload" href="assets/css/home.css" as="style">
+  <link rel="preload" href="assets/js/navigation.js" as="script">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600">
@@ -24,11 +27,6 @@
 <body class="page-layout">
     <!-- Navigation will be inserted here by navigation.js -->
     <nav id="navigation-placeholder"></nav>
-    <script src="assets/js/navigation.js"></script>
-    
-    <!-- jQuery and Magnific Popup -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
   <!-- Hero Section -->
   <header class="hero">
@@ -155,7 +153,10 @@
     });
   </script>
 
-  <!-- Footer Script -->
-  <script src="assets/js/footer.js"></script>
+  <!-- Scripts - Load in correct order -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/footer.js" defer></script>
 </body>
 </html>

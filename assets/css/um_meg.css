@@ -81,6 +81,10 @@
         max-height: 400px;
         object-fit: cover;
         object-position: center;
+        width: 100%;
+        height: auto;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 
     .about-text {
@@ -93,5 +97,29 @@
 
     .container {
         padding: 2rem 1rem;
+    }
+}
+
+/* iOS-specific fixes for proper scaling */
+@media (max-width: 576px) {
+    body.page-layout {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .about-img img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateZ(0) scale(1, 1);
+        transform: translateZ(0) scale(1, 1);
+    }
+
+    .container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }

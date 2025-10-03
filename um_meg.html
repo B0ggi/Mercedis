@@ -3,7 +3,15 @@
 <head>
     <title>Ellinor Mercedis - Um meg</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    
+    <!-- Performance optimizations -->
+    <link rel="preload" href="images/Um_meg/IMG_2916.png" as="image">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap">
@@ -53,8 +61,8 @@
     <!-- Footer is inserted by assets/js/footer.js -->
 
     <!-- Scripts -->
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/navigation.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
     
 </body>
 </html>

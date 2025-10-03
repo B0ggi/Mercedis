@@ -1,11 +1,5 @@
 // Navigation Component
 document.addEventListener('DOMContentLoaded', function() {
-    // Add navigation styles
-    const styleLink = document.createElement('link');
-    styleLink.rel = 'stylesheet';
-    styleLink.href = 'assets/css/navigation.css';
-    document.head.appendChild(styleLink);
-
     // Navigation HTML - matching portfolio.html style
     const navHTML = `
     <nav class="navbar">
