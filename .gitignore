@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Admin panel (local-only, don't deploy to GitHub Pages)
+admin/
+
+# Local admin scripts
+start-admin.cmd
+LOCAL_ADMIN_GUIDE.md
+DECAP_CMS_QUICKSTART.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*

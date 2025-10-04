@@ -214,8 +214,18 @@ textarea {
 
 @media (max-width: 768px) {
     .contact-layout {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
+    }
+
+    .contact-image-container {
+        order: 2;
+    }
+
+    .contact-info-box {
+        order: 1;
+        padding: 2rem 1.5rem;
     }
 
     .contact-section {
@@ -224,10 +234,6 @@ textarea {
     
     .contact-section h1 {
         font-size: 2rem;
-    }
-    
-    .contact-info-box {
-        padding: 2rem 1.5rem;
     }
 
     .contact-info-item {

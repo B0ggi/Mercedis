@@ -354,14 +354,35 @@ body {
 
 @media (max-width: 576px) {
   .hero {
-    background-attachment: scroll;
-    background-position: center 40%;
-    background-size: auto 100%;
-    -webkit-background-size: auto 100%;
-    -moz-background-size: auto 100%;
-    -o-background-size: auto 100%;
+    background: none !important;
     min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Fixed background using pseudo-element */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('../../images/background/Background.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+    /* Lock the background size */
+    min-height: 667px; /* iPhone SE height */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
   }
 
   .hero h1 {
