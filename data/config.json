@@ -1,0 +1,39 @@
+{
+  "version": "2.0",
+  "description": "Artwork data configuration for Ellinor Mercedis portfolio",
+  "collections": [
+    {
+      "id": "featured",
+      "name": "Featured Artworks",
+      "description": "Curated artworks for homepage display",
+      "file": "data/collections/featured.json",
+      "priority": 1
+    },
+    {
+      "id": "2025",
+      "name": "2025 Collection",
+      "description": "Artworks from 2025 and categorized as y2025",
+      "file": "data/collections/2025.json",
+      "priority": 2
+    },
+    {
+      "id": "2024",
+      "name": "2024 Collection",
+      "description": "Artworks from 2024 and categorized as y2024",
+      "file": "data/collections/2024.json",
+      "priority": 3
+    },
+    {
+      "id": "eldri",
+      "name": "Eldri Listaverk",
+      "description": "Artworks older than 2024 (2023 and earlier)",
+      "file": "data/collections/eldri.json",
+      "priority": 4
+    }
+  ],
+  "metadata": {
+    "totalCollections": 4,
+    "lastUpdated": "2025-10-05",
+    "maintainer": "Ellinor Mercedis"
+  }
+}

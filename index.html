@@ -51,16 +51,19 @@
     </section>
   </main>
 
-  <script>
-    // Load artwork data from JSON
+  <script type="module">
+    // Import the enhanced artwork loader
+    import { loadArtworks } from './assets/js/artwork.js';
+
+    // Load artwork data from featured collection
     async function loadAndDisplayArtworks() {
       try {
-        const response = await fetch('data/artworks.json');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        // Load only the featured collection for homepage (optimized)
+        const artworks = await loadArtworks('featured');
+        
+        if (!artworks || artworks.length === 0) {
+          throw new Error('No featured artworks available');
         }
-        const data = await response.json();
-        const artworks = data.artworks.slice(0, 4); // Show only first 4 for homepage
         
         // Populate gallery
         const galleryGrid = document.getElementById('gallery-grid');

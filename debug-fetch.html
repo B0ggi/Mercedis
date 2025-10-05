@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Fetch Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+        .test { background: #252526; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { color: #4ec9b0; }
+        .error { color: #f48771; }
+        pre { background: #1e1e1e; padding: 10px; overflow-x: auto; border: 1px solid #3e3e42; }
+        button { background: #0e639c; color: white; border: none; padding: 10px 20px; cursor: pointer; margin: 5px; }
+        button:hover { background: #1177bb; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug: Direct File Fetch Test</h1>
+    <p>This page directly fetches your JSON files to see what the server is actually serving.</p>
+    
+    <button onclick="testFetch()">Run Test</button>
+    <button onclick="location.reload(true)">Hard Reload Page</button>
+    
+    <div id="results"></div>
+
+    <script>
+        async function testFetch() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing...</p>';
+            
+            const tests = [];
+            
+            // Test 1: Fetch 2024.json with cache busting
+            tests.push({
+                name: '2024.json (with cache busting)',
+                url: `data/collections/2024.json?v=${Date.now()}`
+            });
+            
+            // Test 2: Fetch 2024.json without cache busting
+            tests.push({
+                name: '2024.json (without cache busting)',
+                url: 'data/collections/2024.json'
+            });
+            
+            // Test 3: Fetch with no-cache headers
+            tests.push({
+                name: '2024.json (with no-cache headers)',
+                url: `data/collections/2024.json?v=${Date.now()}`,
+                options: {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                }
+            });
+            
+            let html = '';
+            
+            for (const test of tests) {
+                html += `<div class="test">`;
+                html += `<h3>${test.name}</h3>`;
+                html += `<p>URL: <code>${test.url}</code></p>`;
+                
+                try {
+                    const startTime = Date.now();
+                    const response = await fetch(test.url, test.options || {});
+                    const fetchTime = Date.now() - startTime;
+                    
+                    if (!response.ok) {
+                        html += `<p class="error">❌ Failed: ${response.status} ${response.statusText}</p>`;
+                    } else {
+                        const data = await response.json();
+                        const firstArtwork = data.artworks[0];
+                        
+                        html += `<p class="success">✅ Success (${fetchTime}ms)</p>`;
+                        html += `<p><strong>First artwork:</strong></p>`;
+                        html += `<pre>${JSON.stringify(firstArtwork, null, 2)}</pre>`;
+                        
+                        // Check if it's the updated version
+                        if (firstArtwork.id === 'portfolio11s' && firstArtwork.title === 'Listaverk 11ss') {
+                            html += `<p class="success">✅ This is the UPDATED version!</p>`;
+                        } else if (firstArtwork.id === 'portfolio11') {
+                            html += `<p class="error">❌ This is the OLD cached version!</p>`;
+                        }
+                    }
+                } catch (error) {
+                    html += `<p class="error">❌ Error: ${error.message}</p>`;
+                }
+                
+                html += `</div>`;
+            }
+            
+            // Test 4: Check config.json
+            html += `<div class="test">`;
+            html += `<h3>config.json</h3>`;
+            try {
+                const response = await fetch(`data/config.json?v=${Date.now()}`);
+                const config = await response.json();
+                html += `<p class="success">✅ Config loaded</p>`;
+                html += `<pre>${JSON.stringify(config, null, 2)}</pre>`;
+            } catch (error) {
+                html += `<p class="error">❌ Config failed: ${error.message}</p>`;
+            }
+            html += `</div>`;
+            
+            results.innerHTML = html;
+        }
+        
+        // Auto-run on load
+        window.addEventListener('DOMContentLoaded', testFetch);
+    </script>
+</body>
+</html>

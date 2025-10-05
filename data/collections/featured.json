@@ -1,0 +1,56 @@
+{
+  "artworks": [
+    {
+      "id": "mercedis_sluppirnar_18",
+      "title": "Mercedis sluppirnar 18",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "70 x 50 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio11.JPEG",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_19",
+      "title": "Mercedis sluppirnar 19",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "80 x 60 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio10.JPEG",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_20",
+      "title": "Mercedis sluppirnar 20",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio12.JPEG",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_21",
+      "title": "Mercedis sluppirnar 21",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio2.jpg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    }
+  ]
+}

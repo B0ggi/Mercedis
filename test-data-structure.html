@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Data Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        .stat { display: inline-block; margin: 10px 20px 10px 0; padding: 10px; background: #e9ecef; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Artwork Data Structure Test</h1>
+    
+    <div class="test-section">
+        <h2>1. Config File Test</h2>
+        <div id="config-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Featured Collection Test</h2>
+        <div id="featured-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. All Collections Test</h2>
+        <div id="all-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Duplicate ID Check</h2>
+        <div id="duplicate-test">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>5. Legacy Fallback Test</h2>
+        <div id="legacy-test">Loading...</div>
+    </div>
+
+    <script type="module">
+        import { loadArtworks } from './assets/js/artwork.js';
+
+        // Test 1: Config file
+        async function testConfig() {
+            try {
+                const response = await fetch('data/config.json');
+                const config = await response.json();
+                document.getElementById('config-test').innerHTML = `
+                    <p class="success">✓ Config loaded successfully</p>
+                    <div class="stat">Collections: ${config.collections.length}</div>
+                    <div class="stat">Version: ${config.version}</div>
+                    <pre>${JSON.stringify(config, null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('config-test').innerHTML = `
+                    <p class="error">✗ Failed to load config: ${error.message}</p>
+                `;
+            }
+        }
+
+        // Test 2: Featured collection
+        async function testFeatured() {
+            try {
+                const artworks = await loadArtworks('featured');
+                const ids = artworks.map(a => a.id);
+                document.getElementById('featured-test').innerHTML = `
+                    <p class="success">✓ Featured collection loaded</p>
+                    <div class="stat">Artworks: ${artworks.length}</div>
+                    <div class="stat">IDs: ${ids.join(', ')}</div>
+                    <pre>${JSON.stringify(artworks.slice(0, 2), null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('featured-test').innerHTML = `
+                    <p class="error">✗ Failed to load featured: ${error.message}</p>
+                `;
+            }
+        }
+
+        // Test 3: All collections
+        async function testAll() {
+            try {
+                const artworks = await loadArtworks();
+                const years = [...new Set(artworks.map(a => a.year))].sort();
+                const available = artworks.filter(a => a.available).length;
+                const notAvailable = artworks.filter(a => !a.available).length;
+                
+                document.getElementById('all-test').innerHTML = `
+                    <p class="success">✓ All collections loaded</p>
+                    <div class="stat">Total Artworks: ${artworks.length}</div>
+                    <div class="stat">Available: ${available}</div>
+                    <div class="stat">Not Available: ${notAvailable}</div>
+                    <div class="stat">Years: ${years.join(', ')}</div>
+                `;
+            } catch (error) {
+                document.getElementById('all-test').innerHTML = `
+                    <p class="error">✗ Failed to load all: ${error.message}</p>
+                `;
+            }
+        }
+
+        // Test 4: Duplicate IDs
+        async function testDuplicates() {
+            try {
+                const artworks = await loadArtworks();
+                const ids = artworks.map(a => a.id);
+                const uniqueIds = new Set(ids);
+                const hasDuplicates = ids.length !== uniqueIds.size;
+                
+                if (hasDuplicates) {
+                    const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+                    document.getElementById('duplicate-test').innerHTML = `
+                        <p class="warning">⚠ Duplicates found (but handled by deduplication)</p>
+                        <div class="stat">Total IDs: ${ids.length}</div>
+                        <div class="stat">Unique IDs: ${uniqueIds.size}</div>
+                        <div class="stat">Duplicates: ${duplicates.length}</div>
+                        <pre>${JSON.stringify([...new Set(duplicates)], null, 2)}</pre>
+                    `;
+                } else {
+                    document.getElementById('duplicate-test').innerHTML = `
+                        <p class="success">✓ No duplicate IDs found</p>
+                        <div class="stat">Total Unique IDs: ${uniqueIds.size}</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('duplicate-test').innerHTML = `
+                    <p class="error">✗ Failed to check duplicates: ${error.message}</p>
+                `;
+            }
+        }
+
+        // Test 5: Legacy fallback
+        async function testLegacy() {
+            try {
+                const response = await fetch('data/artworks.json');
+                const data = await response.json();
+                document.getElementById('legacy-test').innerHTML = `
+                    <p class="success">✓ Legacy file still exists (backward compatible)</p>
+                    <div class="stat">Legacy Artworks: ${data.artworks.length}</div>
+                    <p><em>Note: This file is kept for backward compatibility but is no longer the primary data source.</em></p>
+                `;
+            } catch (error) {
+                document.getElementById('legacy-test').innerHTML = `
+                    <p class="warning">⚠ Legacy file not accessible (this is okay if using new structure)</p>
+                `;
+            }
+        }
+
+        // Run all tests
+        async function runTests() {
+            await testConfig();
+            await testFeatured();
+            await testAll();
+            await testDuplicates();
+            await testLegacy();
+        }
+
+        runTests();
+    </script>
+</body>
+</html>

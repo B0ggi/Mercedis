@@ -6,7 +6,6 @@
     <title>Ellinor Mercedis - Listaverk</title>
     
     <!-- Performance optimizations -->
-    <link rel="preload" href="data/artworks.json" as="fetch" crossorigin>
     <link rel="preload" href="assets/css/portfolio.css" as="style">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -38,6 +37,7 @@
                 <button class="filter-btn" data-filter="available">Tøk listaverk</button>
                 <button class="filter-btn" data-filter="y2025">2025</button>
                 <button class="filter-btn" data-filter="y2024">2024</button>
+                <button class="filter-btn" data-filter="eldri">Eldri listaverk</button>
             </div>
         </header>
         
@@ -46,24 +46,48 @@
         </div>
     </main>
 
-    <script>
+    <script type="module">
+        // Import the enhanced artwork loader
+        import { loadArtworks } from './assets/js/artwork.js';
+
+        // Helper function to load artworks excluding featured collection
+        async function loadArtworksExcludingFeatured() {
+            try {
+                const configUrl = `data/config.json?v=${Date.now()}`;
+                const configResponse = await fetch(configUrl);
+                const config = await configResponse.json();
+                
+                // Get all collection IDs except 'featured'
+                const nonFeaturedCollections = config.collections
+                    .filter(c => c.id !== 'featured')
+                    .map(c => c.id);
+                
+                // Load each collection and combine results
+                const allArtworks = [];
+                for (const collectionId of nonFeaturedCollections) {
+                    const artworks = await loadArtworks(collectionId);
+                    allArtworks.push(...artworks);
+                }
+                
+                // Deduplicate by ID
+                const seen = new Set();
+                return allArtworks.filter(artwork => {
+                    if (seen.has(artwork.id)) return false;
+                    seen.add(artwork.id);
+                    return true;
+                });
+            } catch (error) {
+                console.error('Error loading artworks:', error);
+                return [];
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', async function() {
             const portfolioGrid = document.getElementById('portfolio-grid');
             const filterButtons = document.querySelectorAll('.filter-btn');
 
-            async function loadArtworks() {
-                try {
-                    const response = await fetch('data/artworks.json');
-                    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-                    const data = await response.json();
-                    return data.artworks;
-                } catch (error) {
-                    console.error('Failed to load artworks:', error);
-                    return [];
-                }
-            }
-
-            const artworks = await loadArtworks();
+            // Load artworks excluding featured collection (featured is for homepage only)
+            const artworks = await loadArtworksExcludingFeatured();
 
             function createArtworkElement(art) {
                 const item = document.createElement('div');
@@ -108,10 +132,40 @@
                     return;
                 }
 
-                filteredArtworks.forEach(art => {
-                    const item = createArtworkElement(art);
-                    portfolioGrid.appendChild(item);
-                });
+                // If showing all artworks, organize by category headers in order: 2025, 2024, Eldri listaverk
+                if (filter === 'all') {
+                    const categories = [
+                        { id: 'y2025', label: '2025' },
+                        { id: 'y2024', label: '2024' },
+                        { id: 'eldri', label: 'Eldri listaverk' }
+                    ];
+
+                    categories.forEach(category => {
+                        const categoryArtworks = filteredArtworks.filter(art => 
+                            art.categories.includes(category.id)
+                        );
+
+                        if (categoryArtworks.length > 0) {
+                            // Add category header
+                            const header = document.createElement('h2');
+                            header.className = 'category-title';
+                            header.textContent = category.label;
+                            portfolioGrid.appendChild(header);
+
+                            // Add artworks for this category
+                            categoryArtworks.forEach(art => {
+                                const item = createArtworkElement(art);
+                                portfolioGrid.appendChild(item);
+                            });
+                        }
+                    });
+                } else {
+                    // For other filters, just show the artworks without headers
+                    filteredArtworks.forEach(art => {
+                        const item = createArtworkElement(art);
+                        portfolioGrid.appendChild(item);
+                    });
+                }
 
                 // Re-initialize Magnific Popup
                 $('.portfolio-grid').magnificPopup({
