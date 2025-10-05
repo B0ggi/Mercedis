@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4>Sosialir miðlar</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/ellinormer/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/ellinormercedis/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p class="contact-email">ellinor@mercedis.fo</p>
             </div>
@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </footer>`;
 
-    // Add footer to the end of the body
-    document.body.insertAdjacentHTML('beforeend', footerHTML);
+    // Add footer to placeholder if it exists, otherwise to body
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        footerPlaceholder.outerHTML = footerHTML;
+    } else {
+        document.body.insertAdjacentHTML('beforeend', footerHTML);
+    }
 });

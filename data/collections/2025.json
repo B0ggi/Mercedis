@@ -220,6 +220,20 @@
         "notavailable",
         "y2025"
       ]
+    },
+
+    {
+      "id": "mercedis_sluppirnar_65",
+      "title": "Mercedis sluppirnar 65",
+      "year": "2025",
+      "size": "100 x 80 cm",
+      "technique": "Akryl á lørift",
+      "available": false,
+      "image": "images/portfolio/optimized/nytt/IMG_4392.webp",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
     }
   ]
 }
