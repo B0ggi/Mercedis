@@ -38,7 +38,7 @@
                 <button class="filter-btn" data-filter="available">Tøk listaverk</button>
                 <button class="filter-btn" data-filter="y2025">2025</button>
                 <button class="filter-btn" data-filter="y2024">2024</button>
-                <button class="filter-btn" data-filter="eldri">Eldri listaverk</button>
+                <button class="filter-btn" data-filter="eldri">2023 og seinni</button>
             </div>
 
             <!-- Mobile filter dropdown -->
@@ -63,26 +63,24 @@
         // Import the enhanced artwork loader
         import { loadArtworks } from './assets/js/artwork.js';
 
-        // Helper function to load artworks excluding featured collection
-        async function loadArtworksExcludingFeatured() {
+        // Helper function to load all artworks from all collections
+        async function loadAllArtworks() {
             try {
-                const configUrl = `data/config.json?v=${Date.now()}`;
+                const configUrl = 'data/config.json';
                 const configResponse = await fetch(configUrl);
                 const config = await configResponse.json();
                 
-                // Get all collection IDs except 'featured'
-                const nonFeaturedCollections = config.collections
-                    .filter(c => c.id !== 'featured')
-                    .map(c => c.id);
+                // Get all collection IDs (including featured)
+                const allCollections = config.collections.map(c => c.id);
                 
                 // Load each collection and combine results
                 const allArtworks = [];
-                for (const collectionId of nonFeaturedCollections) {
+                for (const collectionId of allCollections) {
                     const artworks = await loadArtworks(collectionId);
                     allArtworks.push(...artworks);
                 }
                 
-                // Deduplicate by ID
+                // Deduplicate by ID (in case same artwork is in multiple collections)
                 const seen = new Set();
                 return allArtworks.filter(artwork => {
                     if (seen.has(artwork.id)) return false;
@@ -99,27 +97,67 @@
             const portfolioGrid = document.getElementById('portfolio-grid');
             const filterButtons = document.querySelectorAll('.filter-btn');
 
-            // Load artworks excluding featured collection (featured is for homepage only)
-            const artworks = await loadArtworksExcludingFeatured();
+            // Load all artworks from all collections (including featured)
+            const artworks = await loadAllArtworks();
 
             function createArtworkElement(art) {
                 const item = document.createElement('div');
                 item.className = 'portfolio-item';
 
-                item.innerHTML = `
-                    <a href="${art.image}" data-gallery="portfolio-gallery" title="${art.title}">
-                        <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null;this.src='images/placeholder.jpg';">
-                        <div class="artwork-overlay">
-                            <div class="artwork-info">
-                                <h3>${art.title}</h3>
-                                <div class="artwork-meta">
-                                    <span>${art.year}</span>
-                                    ${art.technique ? `<span>${art.technique}</span>` : ''}
-                                    <span class="availability ${art.available ? 'available' : 'not-available'}">${art.available ? 'Tøkt' : 'Ikki tøkt'}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>`;
+                // Create elements safely without innerHTML
+                const link = document.createElement('a');
+                link.href = art.image;
+                link.setAttribute('data-gallery', 'portfolio-gallery');
+                link.title = art.title;
+
+                const img = document.createElement('img');
+                img.src = art.image;
+                img.alt = art.title;
+                img.loading = 'lazy';
+                img.addEventListener('error', function() {
+                    this.src = 'images/placeholder.jpg';
+                });
+
+                const overlay = document.createElement('div');
+                overlay.className = 'artwork-overlay';
+
+                const artworkInfo = document.createElement('div');
+                artworkInfo.className = 'artwork-info';
+
+                const title = document.createElement('h3');
+                title.textContent = art.title;
+
+                const meta = document.createElement('div');
+                meta.className = 'artwork-meta';
+
+                const year = document.createElement('span');
+                year.textContent = art.year;
+                meta.appendChild(year);
+
+                if (art.technique) {
+                    const technique = document.createElement('span');
+                    technique.textContent = art.technique;
+                    meta.appendChild(technique);
+                }
+
+                if (art.size) {
+                    const size = document.createElement('span');
+                    size.textContent = art.size;
+                    meta.appendChild(size);
+                }
+
+                const availability = document.createElement('span');
+                availability.className = `availability ${art.available ? 'available' : 'not-available'}`;
+                availability.textContent = art.available ? 'Tøkt' : 'Ikki tøkt';
+                meta.appendChild(availability);
+
+                artworkInfo.appendChild(title);
+                artworkInfo.appendChild(meta);
+                overlay.appendChild(artworkInfo);
+                link.appendChild(img);
+                link.appendChild(overlay);
+                item.appendChild(link);
+
                 return item;
             }
 
@@ -127,7 +165,10 @@
                 portfolioGrid.innerHTML = '';
 
                 if (!artworks || artworks.length === 0) {
-                    portfolioGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #666;">Ongi listaverk funnin.</p>';
+                    const message = document.createElement('p');
+                    message.style.cssText = 'grid-column: 1 / -1; text-align: center; color: #666;';
+                    message.textContent = 'Ongi listaverk funnin.';
+                    portfolioGrid.appendChild(message);
                     return;
                 }
 
@@ -141,7 +182,10 @@
                 }
 
                 if (filteredArtworks.length === 0) {
-                    portfolioGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #666;">Ongi listaverk funnin fyri hetta filtrið.</p>';
+                    const message = document.createElement('p');
+                    message.style.cssText = 'grid-column: 1 / -1; text-align: center; color: #666;';
+                    message.textContent = 'Ongi listaverk funnin fyri hetta filtrið.';
+                    portfolioGrid.appendChild(message);
                     return;
                 }
 

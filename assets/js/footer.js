@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-section">
                 <h4>Leinkjur</h4>   
                 <ul>
-                    <li><a href="index.html">Heim</a></li>
+                    <li><a href="heim.html">Heim</a></li>
                     <li><a href="portfolio.html">Listaverk</a></li>
                     <li><a href="framsyningar.html">Framsýningar</a></li>
                     <li><a href="um_meg.html">Um meg</a></li>
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-section">
                 <h4>Sosialir miðlar</h4>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/ellinormer/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/ellinormer/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ellinormercedis/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p class="contact-email">ellinor@mercedis.fo</p>
             </div>

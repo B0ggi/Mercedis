@@ -9,8 +9,8 @@ export async function loadArtworks(collectionId = null) {
   try {
     console.log('[Artwork Loader] Starting to load artworks...', collectionId ? `Collection: ${collectionId}` : 'All collections');
     
-    // Load the config file with cache busting
-    const configUrl = `data/config.json?v=${Date.now()}`;
+    // Load the config file (browser will cache this)
+    const configUrl = 'data/config.json';
     const configResponse = await fetch(configUrl);
     if (!configResponse.ok) {
       throw new Error(`Config load error! status: ${configResponse.status}`);
@@ -33,8 +33,8 @@ export async function loadArtworks(collectionId = null) {
     // Load all specified collections in parallel
     const collectionPromises = collectionsToLoad.map(async (collection) => {
       try {
-        // Add cache busting to collection files
-        const collectionUrl = `${collection.file}?v=${Date.now()}`;
+        // Load collection file (browser will cache this)
+        const collectionUrl = collection.file;
         const response = await fetch(collectionUrl);
         if (!response.ok) {
           console.warn(`Failed to load ${collection.file}: ${response.status}`);
@@ -93,7 +93,7 @@ function deduplicateArtworks(artworks) {
 async function loadLegacyArtworks() {
   try {
     console.log('[Artwork Loader] Attempting legacy fallback...');
-    const legacyUrl = `data/artworks.json?v=${Date.now()}`;
+    const legacyUrl = 'data/artworks.json';
     const response = await fetch(legacyUrl);
     if (!response.ok) {
       console.error('[Artwork Loader] Legacy file not found');

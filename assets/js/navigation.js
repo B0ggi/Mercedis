@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navHTML = `
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">Mercedis.fo</a>
+            <a href="heim.html" class="logo">Mercedis.fo</a>
             <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Heim</a>
+                <a href="heim.html" class="nav-link">Heim</a>
                 <a href="framsyningar.html" class="nav-link">Framsýningar</a>
                 <a href="portfolio.html" class="nav-link">Listaverk</a>
                 <a href="um_meg.html" class="nav-link">Um meg</a>
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Highlight active page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'heim.html';
     navLinks.forEach(link => {
         // Remove any existing active classes first
         link.classList.remove('active');
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check if this link's href matches the current page
         const linkHref = link.getAttribute('href');
         
-        // Special case for index.html (home page)
-        if (currentPage === 'index.html' && linkHref === 'index.html') {
+        // Special case for heim.html (home page) - also handle index.html for backwards compatibility
+        if ((currentPage === 'heim.html' || currentPage === 'index.html' || currentPage === '') && linkHref === 'heim.html') {
             link.classList.add('active');
             return;
         }

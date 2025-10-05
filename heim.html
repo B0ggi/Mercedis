@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="fo">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ellinor Mercedis - Faroese Artist</title>
+  
+  <!-- Performance optimizations -->
+  <link rel="preload" href="images/background/Background.png" as="image">
+  <link rel="preload" href="assets/css/home.css" as="style">
+  <link rel="preload" href="assets/js/navigation.js" as="script">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/navigation.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+<body class="page-layout">
+    <!-- Navigation will be inserted here by navigation.js -->
+    <nav id="navigation-placeholder"></nav>
+
+  <!-- Hero Section with Background -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Listaverk og Framsýningar</h1>
+      <div class="hero-buttons">
+        <a href="portfolio.html" class="btn">Sjá listaverk</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+      <header class="section-header">
+        <h2>Nýggjastu listaverk</h2>
+      </header>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Artworks will be loaded here by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    // Import the enhanced artwork loader
+    import { loadArtworks } from './assets/js/artwork.js';
+
+    // Load artwork data from featured collection
+    async function loadAndDisplayArtworks() {
+      try {
+        // Load only the featured collection for homepage (optimized)
+        const artworks = await loadArtworks('featured');
+        
+        if (!artworks || artworks.length === 0) {
+          throw new Error('No featured artworks available');
+        }
+        
+        // Populate gallery
+        const galleryGrid = document.getElementById('gallery-grid');
+        
+        artworks.forEach(artwork => {
+          const artworkElement = document.createElement('div');
+          artworkElement.className = 'artwork-card';
+          
+          // Create elements safely without innerHTML
+          const link = document.createElement('a');
+          link.href = artwork.image;
+          link.setAttribute('data-gallery', 'homepage-gallery');
+
+          const img = document.createElement('img');
+          img.src = artwork.image;
+          img.alt = artwork.title;
+          img.className = 'artwork-image';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.addEventListener('error', function() {
+            this.src = 'images/placeholder.jpg';
+            this.alt = 'Mynd ikki tøk';
+          });
+
+          const artworkInfo = document.createElement('div');
+          artworkInfo.className = 'artwork-info';
+
+          const title = document.createElement('h3');
+          title.className = 'artwork-title';
+          title.textContent = artwork.title;
+
+          const details1 = document.createElement('p');
+          details1.className = 'artwork-details';
+          details1.textContent = `${artwork.year} • ${artwork.technique || 'Ókennt teknikk'}`;
+
+          const details2 = document.createElement('p');
+          details2.className = 'artwork-details';
+          details2.textContent = artwork.size || 'Ókennt stødd';
+
+          const availability = document.createElement('p');
+          availability.className = 'artwork-availability';
+          availability.textContent = artwork.available ? 'Tøkt' : 'SÖLD';
+
+          artworkInfo.appendChild(title);
+          artworkInfo.appendChild(details1);
+          artworkInfo.appendChild(details2);
+          artworkInfo.appendChild(availability);
+          link.appendChild(img);
+          link.appendChild(artworkInfo);
+          artworkElement.appendChild(link);
+          galleryGrid.appendChild(artworkElement);
+        });
+
+        // Initialize Magnific Popup for the homepage gallery
+        $('.gallery-grid').magnificPopup({
+          delegate: 'a[data-gallery="homepage-gallery"]',
+          type: 'image',
+          gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1]
+          },
+          image: {
+            titleSrc: function(item) {
+              const $el = $(item.el);
+              const title = $el.find('.artwork-title').text();
+              const details = $el.find('.artwork-details').map(function() { return $(this).text(); }).get().join('<br>');
+              const availability = $el.find('.artwork-availability').text();
+              return `<div style="text-align:left;"><strong>${title}</strong><br>${details}<br><em>${availability}</em></div>`;
+            }
+          }
+        });
+
+      } catch (error) {
+        console.error('Error loading artworks:', error);
+        const galleryGrid = document.getElementById('gallery-grid');
+        const message = document.createElement('p');
+        message.style.cssText = 'text-align: center; color: #666;';
+        message.textContent = 'Tøkst ikki at henta listaverk í løtuni.';
+        galleryGrid.appendChild(message);
+      }
+    }
+
+    // Load artworks when page loads
+    document.addEventListener('DOMContentLoaded', loadAndDisplayArtworks);
+
+    // Scroll-triggered animations for gallery cards
+    function animateOnScroll() {
+      const cards = document.querySelectorAll('.artwork-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('animate');
+            }, index * 100); // Stagger animation by 100ms per card
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      cards.forEach(card => observer.observe(card));
+    }
+
+    // Initialize scroll animations after artworks are loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(animateOnScroll, 500); // Wait for artworks to load
+    });
+
+    // Navigation is now handled by navigation.js
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+  </script>
+
+  <!-- Scripts - Load in correct order -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/footer.js" defer></script>
+  
+  <!-- Analytics - Privacy-focused, cookie-free -->
+  <script src="assets/js/analytics.js" defer></script>
+</body>
+</html>
