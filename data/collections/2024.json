@@ -441,6 +441,20 @@
         "notavailable",
         "y2024"
       ]
+    },
+
+    {
+      "id": "mercedis_sluppirnar_38",
+      "title": "Mercedis sluppirnar 38",
+      "year": "2024",
+      "size": "120 x 90 cm",
+      "technique": "Akryl á lørift",
+      "available": false,
+      "image": "images/portfolio/image_50425345.JPG",
+      "categories": [
+        "notavailable",
+        "y2024"
+      ]
     }
   ]
 }
