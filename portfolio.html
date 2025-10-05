@@ -32,12 +32,25 @@
                 <h1>Listaverk</h1>
             </div>
 
+            <!-- Desktop filter buttons -->
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Øll listaverk</button>
                 <button class="filter-btn" data-filter="available">Tøk listaverk</button>
                 <button class="filter-btn" data-filter="y2025">2025</button>
                 <button class="filter-btn" data-filter="y2024">2024</button>
                 <button class="filter-btn" data-filter="eldri">Eldri listaverk</button>
+            </div>
+
+            <!-- Mobile filter dropdown -->
+            <div class="filter-dropdown-mobile">
+                <label for="mobile-filter" class="sr-only">Vel bólk:</label>
+                <select id="mobile-filter" class="mobile-filter-select">
+                    <option value="all" selected>Øll listaverk</option>
+                    <option value="available">Tøk listaverk</option>
+                    <option value="y2025">2025</option>
+                    <option value="y2024">2024</option>
+                    <option value="eldri">Eldri listaverk</option>
+                </select>
             </div>
         </header>
         
@@ -102,7 +115,7 @@
                                 <div class="artwork-meta">
                                     <span>${art.year}</span>
                                     ${art.technique ? `<span>${art.technique}</span>` : ''}
-                                    <span class="availability ${art.available ? 'available' : 'not-available'}">${art.available ? 'Tøkt' : 'Selt'}</span>
+                                    <span class="availability ${art.available ? 'available' : 'not-available'}">${art.available ? 'Tøkt' : 'Ikki tøkt'}</span>
                                 </div>
                             </div>
                         </div>
@@ -181,8 +194,32 @@
                     this.classList.add('active');
                     const filter = this.getAttribute('data-filter');
                     renderArtworks(filter);
+                    
+                    // Sync mobile dropdown
+                    const mobileSelect = document.getElementById('mobile-filter');
+                    if (mobileSelect) {
+                        mobileSelect.value = filter;
+                    }
                 });
             });
+
+            // Mobile dropdown filter
+            const mobileFilter = document.getElementById('mobile-filter');
+            if (mobileFilter) {
+                mobileFilter.addEventListener('change', function() {
+                    const filter = this.value;
+                    renderArtworks(filter);
+                    
+                    // Sync desktop buttons
+                    filterButtons.forEach(btn => {
+                        if (btn.getAttribute('data-filter') === filter) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                });
+            }
 
             // Initial render
             renderArtworks('all');

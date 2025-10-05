@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-section">
                 <h4>Sosialir miðlar</h4>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/ellinormer/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-                <p class="contact-email">info@mercedis.fo</p>
+                <p class="contact-email">ellinor@mercedis.fo</p>
             </div>
         </div>
         <div class="footer-bottom">
