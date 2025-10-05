@@ -7,7 +7,10 @@
   "scripts": {
     "serve": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "images:optimize": "node scripts/optimize-portfolio-images.mjs",
+    "images:switch": "node scripts/switch-to-optimized.mjs",
+    "images:revert": "node scripts/revert-to-original.mjs"
   },
   "devDependencies": {
     "globby": "^14.1.0",

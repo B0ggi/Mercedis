@@ -1,0 +1,225 @@
+{
+  "artworks": [
+    {
+      "id": "mercedis_sluppirnar_1",
+      "title": "Mercedis sluppirnar 1",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio7.JPEG",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_2",
+      "title": "Mercedis sluppirnar 2",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio8.JPEG",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_3",
+      "title": "Mercedis sluppirnar 3",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "60 x 80 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio9.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_4",
+      "title": "Mercedis sluppirnar 4",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/nytt/IMG_1119.png",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_5",
+      "title": "Mercedis sluppirnar 5",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": true,
+      "image": "images/portfolio/nytt/IMG_1120.png",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_6",
+      "title": "Mercedis sluppirnar 6",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": false,
+      "image": "images/portfolio/nytt/IMG_1122.png",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_7",
+      "title": "Mercedis sluppirnar 7",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": false,
+      "image": "images/portfolio/nytt/IMG_1123.jpeg",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_8",
+      "title": "Mercedis sluppirnar 8",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "70 x 90 cm",
+      "available": false,
+      "image": "images/portfolio/nytt/IMG_1978.jpeg",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_24",
+      "title": "Mercedis sluppirnar 24",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio12.JPEG",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "Abstrakt_1",
+      "title": "Abstrakt 1",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "120 x 90 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio13.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "Abstrakt_2",
+      "title": "Abstrakt 2",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio14.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "Abstrakt_3",
+      "title": "Abstrakt 3",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio15.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "Abstrakt_4",
+      "title": "Abstrakt 4",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "120 x 90 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio16.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_29",
+      "title": "Mercedis sluppirnar 29",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "100 x 80 cm",
+      "available": false,
+      "image": "images/portfolio/Portfolio17.JPEG",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_31",
+      "title": "Mercedis sluppirnar 31",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "90 x 70 cm",
+      "available": true,
+      "image": "images/portfolio/Portfolio2.jpg",
+      "categories": [
+        "available",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_63",
+      "title": "Mercedis sluppirnar 63",
+      "year": "2025",
+      "size": "100 x 80 cm",
+      "technique": "Akryl á lørift",
+      "available": false,
+      "image": "images/portfolio/IMG_5854.jpeg",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    {
+      "id": "mercedis_sluppirnar_64",
+      "title": "Mercedis sluppirnar 64",
+      "year": "2025",
+      "size": "100 x 80 cm",
+      "technique": "Akryl á lørift",
+      "available": false,
+      "image": "images/portfolio/IMG_5855.jpeg",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    }
+  ]
+}
