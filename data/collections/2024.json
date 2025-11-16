@@ -462,10 +462,10 @@
       "year": "2024",
       "technique": "Akryl á lørift",
       "size": "",
-      "available": true,
+      "available": false,
       "image": "images/portfolio/optimized/Nytt/mynd1.webp",
       "categories": [
-        "available",
+        "notavailable",
         "y2024"
       ]
     },
