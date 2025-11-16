@@ -455,6 +455,71 @@
         "notavailable",
         "y2024"
       ]
+    },
+    {
+      "id": "nytt_mynd1",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/optimized/Nytt/mynd1.webp",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+    {
+      "id": "nytt_mynd2",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd2.webp",
+      "categories": [
+        "notavailable",
+        "y2024"
+      ]
+    },
+    {
+      "id": "nytt_mynd3",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd3.webp",
+      "categories": [
+        "notavailable",
+        "y2024"
+      ]
+    },
+    {
+      "id": "nytt_mynd4",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd4.webp",
+      "categories": [
+        "notavailable",
+        "y2024"
+      ]
+    },
+    {
+      "id": "nytt_mynd5",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd5.webp",
+      "categories": [
+        "notavailable",
+        "y2024"
+      ]
     }
   ]
 }

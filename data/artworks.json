@@ -838,6 +838,104 @@
         "notavailable",
         "y2024"
       ]
+    },
+
+    {
+      "id": "nytt_mynd1",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd1.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd2",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd2.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd3",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd3.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd4",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd4.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd5",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd5.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd6",
+      "title": "Listaverk",
+      "year": "2024",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd6.jpeg",
+      "categories": [
+        "available",
+        "y2024"
+      ]
+    },
+
+    {
+      "id": "nytt_mynd7",
+      "title": "Listaverk",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "",
+      "available": true,
+      "image": "images/portfolio/Nytt/mynd7.jpeg",
+      "categories": [
+        "available",
+        "y2025"
+      ]
     }
 
   ]

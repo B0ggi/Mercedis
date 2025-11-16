@@ -1,5 +1,34 @@
 {
   "artworks": [
+       {
+      "id": "nytt_mynd7",
+      "title": "Listaverk",
+      "year": "2025",
+      "technique": "Akryl á lørift",
+      "size": "200 x 100 cm",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd7.webp",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+
+       {
+      "id": "nytt_mynd6",
+      "title": "Guitar",
+      "year": "2025",
+      "technique": "Akryl og lakk á Guitar",
+      "size": "",
+      "available": false,
+      "image": "images/portfolio/optimized/Nytt/mynd6.webp",
+      "categories": [
+        "notavailable",
+        "y2025"
+      ]
+    },
+    
+    
     {
       "id": "mercedis_sluppirnar_1",
       "title": "Mercedis sluppirnar 1",
@@ -19,10 +48,10 @@
       "year": "2025",
       "technique": "Akryl á lørift",
       "size": "100 x 80 cm",
-      "available": true,
+      "available": false,
       "image": "images/portfolio/optimized/Portfolio8.webp",
       "categories": [
-        "available",
+        "notavailable",
         "y2025"
       ]
     },
