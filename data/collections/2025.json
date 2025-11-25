@@ -1,20 +1,6 @@
 {
   "artworks": [
        {
-      "id": "nytt_mynd7",
-      "title": "Listaverk",
-      "year": "2025",
-      "technique": "Akryl á lørift",
-      "size": "200 x 100 cm",
-      "available": false,
-      "image": "images/portfolio/optimized/Nytt/mynd7.webp",
-      "categories": [
-        "notavailable",
-        "y2025"
-      ]
-    },
-
-       {
       "id": "nytt_mynd6",
       "title": "Guitar",
       "year": "2025",
