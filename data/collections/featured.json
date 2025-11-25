@@ -1,18 +1,5 @@
 {
   "artworks": [
-           {
-      "id": "nytt_mynd7",
-      "title": "Listaverk",
-      "year": "2025",
-      "technique": "Akryl á lørift",
-      "size": "",
-      "available": false,
-      "image": "images/portfolio/optimized/Nytt/mynd7.webp",
-      "categories": [
-        "notavailable",
-        "y2025"
-      ]
-    },
 
        {
       "id": "nytt_mynd6",
